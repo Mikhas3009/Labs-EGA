@@ -4,12 +4,12 @@ import { landScapeSearch } from "./landscape- search";
 import { adaptation } from "./adaptation";
 
 //Задаем пространство поиска:
-const S:string[]= new Array(n)
+const S:string[]=[];
 landScapeSearch.call(S);
 console.log("Пространство поиска:");
-S.forEach((elem)=>{
-    console.log("Кодировка: ",elem, "  Приспособленность: ",adaptation(elem))
-})
+for(let i =0;i<n;i++){
+    console.log("Кодировка: ",S[i], "  Приспособленность: ",adaptation(S[i]))
+}
 
 //Задаем переменные 
 let max:number = 0;
@@ -24,7 +24,7 @@ for(let i =0; i<N; i++) {
     if(max<adaptation(si)){
         max = adaptation(si);
         maxS = si;
-        console.log("Новый максммум: ",maxS , "Приспособленность: ",maxS)
+        console.log("Новый максммум: ",maxS , "Приспособленность: ",adaptation(maxS))
     }
 }
 

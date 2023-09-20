@@ -1,9 +1,9 @@
-import { L } from "./consts"
+import { L} from "./consts"
 
 export function landScapeSearch (this:string[]){
-    for(let i = 0; i < this.length; i++){
-        let num = Math.floor(Math.random()*Math.pow(2,L)).toString(2);
-        this[i] = leadingZeros(num.length)+num;
+    for(let i = 0; i < Math.pow(2,L)-1; i++){
+        let num = i.toString(2);
+        this.push(leadingZeros(num.length)+num);
     }
 }
 
