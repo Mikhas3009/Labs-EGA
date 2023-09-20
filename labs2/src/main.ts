@@ -18,26 +18,22 @@ let flag:boolean = false;
 const si = LandScape.getRandSi(landScape);
 let maxS = si.getCoding();
 let max = si.getAdaptation();
-let neighbors = neighborsDef(maxS);
+let neighbors = neighborsDef(maxS,landScape);
 for (let i =0; i< N;i++){
     console.log("Шаг: ",i, "max: ",max, "maxS: ",maxS);
     if(flag){
-        neighbors = neighborsDef(maxS);
+        neighbors = neighborsDef(maxS,landScape);
     }
     if (neighbors.length <=0){
         break;
     }
     const {neighbor,index} = getRandNeihbor(neighbors);
-  
-    let adaptation = landScape.find(elem=>
-        elem.getCoding() == neighbor
-    )?.getAdaptation()||0;
-    console.log("Выбираемая кодировка: ",neighbor,"Ее приспособленность: ",adaptation);
+    console.log("Выбираемая кодировка: ",neighbor.getCoding(),"Ее приспособленность: ",neighbor.getAdaptation());
     console.log("Окресность: ",neighbors);
     //console.log("Окресность: ",LandScape.printLandScape(landScape))
-    if(adaptation>max){
-        max = adaptation;
-        maxS = neighbor;
+    if(neighbor.getAdaptation()>max){
+        max = neighbor.getAdaptation();
+        maxS = neighbor.getCoding();
         console.log("Новый максммум: ",maxS , "Приспособленность: ",max)
         flag = true
     }

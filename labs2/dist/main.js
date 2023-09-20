@@ -1,5 +1,4 @@
 "use strict";
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 const consts_1 = require("./consts");
 const land_scape_1 = require("./land-scape");
@@ -18,23 +17,22 @@ let flag = false;
 const si = land_scape_1.LandScape.getRandSi(landScape);
 let maxS = si.getCoding();
 let max = si.getAdaptation();
-let neighbors = (0, neighborhood_definition_1.neighborsDef)(maxS);
+let neighbors = (0, neighborhood_definition_1.neighborsDef)(maxS, landScape);
 for (let i = 0; i < consts_1.N; i++) {
     console.log("Шаг: ", i, "max: ", max, "maxS: ", maxS);
     if (flag) {
-        neighbors = (0, neighborhood_definition_1.neighborsDef)(maxS);
+        neighbors = (0, neighborhood_definition_1.neighborsDef)(maxS, landScape);
     }
     if (neighbors.length <= 0) {
         break;
     }
     const { neighbor, index } = (0, neighborhood_definition_1.getRandNeihbor)(neighbors);
-    let adaptation = ((_a = landScape.find(elem => elem.getCoding() == neighbor)) === null || _a === void 0 ? void 0 : _a.getAdaptation()) || 0;
-    console.log("Выбираемая кодировка: ", neighbor, "Ее приспособленность: ", adaptation);
+    console.log("Выбираемая кодировка: ", neighbor.getCoding(), "Ее приспособленность: ", neighbor.getAdaptation());
     console.log("Окресность: ", neighbors);
     //console.log("Окресность: ",LandScape.printLandScape(landScape))
-    if (adaptation > max) {
-        max = adaptation;
-        maxS = neighbor;
+    if (neighbor.getAdaptation() > max) {
+        max = neighbor.getAdaptation();
+        maxS = neighbor.getCoding();
         console.log("Новый максммум: ", maxS, "Приспособленность: ", max);
         flag = true;
     }
