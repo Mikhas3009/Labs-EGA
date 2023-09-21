@@ -18,11 +18,14 @@ const si = land_scape_1.LandScape.getRandSi(landScape);
 let maxS = si.getCoding();
 let max = si.getAdaptation();
 for (let i = 0; i < consts_1.N; i++) {
+    console.log("Шаг: ", i, "max: ", max, "maxS: ", maxS);
     let neighbors = (0, neighborhood_definition_1.neighborsDef)(maxS, landScape);
-    console.log('Выбираемая кодировка: ', maxS, " Приспособленность: ", max);
+    console.log('Текущий Максимум: ', maxS, " Приспособленность: ", max);
     console.log("Окресность: ", neighbors);
-    //console.log("Окресность: ",LandScape.printLandScape(landScape))
+    //console.log("Окресность: ")
+    //LandScape.printLandScape(neighbors)
     const element = land_scape_1.LandScape.maxAdaptation(neighbors);
+    console.log('Выбираемая из окресности кодировка: ', element.getCoding(), " Приспособленность: ", element.getAdaptation());
     if (element.getAdaptation() > max) {
         max = element.getAdaptation();
         maxS = element.getCoding();

@@ -1,4 +1,4 @@
-import { N } from "./consts";
+import { N, NUMBER_OF_PRINT_CODING } from "./consts";
 import { LandScape } from "./land-scape";
 import { landScapeSearch } from "./land-scape-search";
 import { getRandNeihbor, neighborsDef } from "./neighborhood-definition";
@@ -8,7 +8,7 @@ const landScape: LandScape[]=[];
 landScapeSearch.call(landScape);
 
 // вывод ландшафта поиска 
-for(let i = 0; i < 31;i++){
+for(let i = 0; i < NUMBER_OF_PRINT_CODING;i++){
     console.log("Кодировка: ",landScape[i].getCoding(), "  Приспособленность: ",landScape[i].getAdaptation())
 }
 //Входные данные
@@ -30,7 +30,8 @@ for (let i =0; i< N;i++){
     const {neighbor,index} = getRandNeihbor(neighbors);
     console.log("Выбираемая кодировка: ",neighbor.getCoding(),"Ее приспособленность: ",neighbor.getAdaptation());
     console.log("Окресность: ",neighbors);
-    //console.log("Окресность: ",LandScape.printLandScape(landScape))
+    // console.log("Окресность: ")
+    // LandScape.printLandScape(neighbors)
     if(neighbor.getAdaptation()>max){
         max = neighbor.getAdaptation();
         maxS = neighbor.getCoding();

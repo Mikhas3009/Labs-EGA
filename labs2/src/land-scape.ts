@@ -1,4 +1,4 @@
-import { maxAdaptation } from "./consts";
+import { L, maxAdaptation } from "./consts";
 
 export class LandScape {
 
@@ -11,7 +11,9 @@ export class LandScape {
     }
 
     private calcAdaptation(coding?: string): number {
-        return Math.floor(Math.random()*maxAdaptation);
+        let num = Number("0b"+coding);
+        return Math.pow((num-Math.pow(2,(L-1))),2)
+      //  return Math.floor(Math.random()*maxAdaptation);
     }
 
     public getCoding(){

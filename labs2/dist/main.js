@@ -8,7 +8,7 @@ const neighborhood_definition_1 = require("./neighborhood-definition");
 const landScape = [];
 land_scape_search_1.landScapeSearch.call(landScape);
 // вывод ландшафта поиска 
-for (let i = 0; i < 31; i++) {
+for (let i = 0; i < consts_1.NUMBER_OF_PRINT_CODING; i++) {
     console.log("Кодировка: ", landScape[i].getCoding(), "  Приспособленность: ", landScape[i].getAdaptation());
 }
 //Входные данные
@@ -29,7 +29,8 @@ for (let i = 0; i < consts_1.N; i++) {
     const { neighbor, index } = (0, neighborhood_definition_1.getRandNeihbor)(neighbors);
     console.log("Выбираемая кодировка: ", neighbor.getCoding(), "Ее приспособленность: ", neighbor.getAdaptation());
     console.log("Окресность: ", neighbors);
-    //console.log("Окресность: ",LandScape.printLandScape(landScape))
+    // console.log("Окресность: ")
+    // LandScape.printLandScape(neighbors)
     if (neighbor.getAdaptation() > max) {
         max = neighbor.getAdaptation();
         maxS = neighbor.getCoding();

@@ -8,7 +8,9 @@ class LandScape {
         this.adaptation = this.calcAdaptation(coding);
     }
     calcAdaptation(coding) {
-        return Math.floor(Math.random() * consts_1.maxAdaptation);
+        let num = Number("0b" + coding);
+        return Math.pow((num - Math.pow(2, (consts_1.L - 1))), 2);
+        //  return Math.floor(Math.random()*maxAdaptation);
     }
     getCoding() {
         return this.coding;
