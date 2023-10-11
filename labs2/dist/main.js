@@ -27,8 +27,8 @@ for (let i = 0; i < consts_1.N; i++) {
         break;
     }
     const { neighbor, index } = (0, neighborhood_definition_1.getRandNeihbor)(neighbors);
-    console.log("Выбираемая кодировка: ", neighbor.getCoding(), "Ее приспособленность: ", neighbor.getAdaptation());
     console.log("Окресность: ", neighbors);
+    console.log("Выбираемая кодировка: ", neighbor.getCoding(), "Ее приспособленность: ", neighbor.getAdaptation());
     // console.log("Окресность: ")
     // LandScape.printLandScape(neighbors)
     if (neighbor.getAdaptation() > max) {

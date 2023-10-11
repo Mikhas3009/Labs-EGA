@@ -32,7 +32,7 @@ for(let i = 0; i < N;i++){
         case 1:{
             console.log("\nЗапущен метод поиска в глубину\n")
             const s = depthSearch(maxS,landScape,max);
-            console.log("Метод отработал")
+            console.log("Метод отработал");
             if(s.getAdaptation()>max){
                 console.log("Новый Максимум: ",s.getAdaptation());
                 max = s.getAdaptation();
@@ -43,7 +43,7 @@ for(let i = 0; i < N;i++){
         case 2:{
             console.log("\nЗапущен метод поиска в в ширину\n")
             const s = breadthSearch(maxS,landScape,max);
-            console.log("Метод отработал")
+            console.log("Метод отработал");
             if(s.getAdaptation()>max){
                 console.log("Новый Максимум: ",s.getAdaptation());
                 max = s.getAdaptation();

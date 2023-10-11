@@ -10,7 +10,8 @@ export function neighborsDef(coding:string,landScape:LandScape[]):LandScape[]{
         const difference = (Number('0b'+neighbor)^Number('0b'+coding));
         const differenceStr = difference.toString(2);
         const regex1 = /[1]/g;
-        if (differenceStr.match(regex1)?.length==K){
+        const numberOf1 = differenceStr.match(regex1)?.length||0
+        if (numberOf1<=K&&numberOf1!=0){
             neighbors.push(findCoding(neighbor,landScape));
         }
     }

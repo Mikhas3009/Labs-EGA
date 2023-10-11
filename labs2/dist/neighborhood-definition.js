@@ -13,7 +13,8 @@ function neighborsDef(coding, landScape) {
         const difference = (Number('0b' + neighbor) ^ Number('0b' + coding));
         const differenceStr = difference.toString(2);
         const regex1 = /[1]/g;
-        if (((_a = differenceStr.match(regex1)) === null || _a === void 0 ? void 0 : _a.length) == consts_1.K) {
+        const numberOf1 = ((_a = differenceStr.match(regex1)) === null || _a === void 0 ? void 0 : _a.length) || 0;
+        if (numberOf1 <= consts_1.K && numberOf1 != 0) {
             neighbors.push(findCoding(neighbor, landScape));
         }
     }
