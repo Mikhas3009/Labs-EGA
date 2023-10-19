@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Задача о ранце</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Задача о ранце</h1>
+    <div class="radio-group">
+      <label for="greedy">Жадный алгоритм</label>
+      <input type="radio" id="greedy" name="algorithm" value="7" checked>
+    </div>
+    <div class="radio-group">
+      <label for="dynamic">Жадный алгоритм Данцига</label>
+      <input type="radio" id="dynamic" name="algorithm" value="8">
+    </div>
+
+    <div class="limit-input">
+      <label for="knapsack-limit">Максимальный вес ранца:</label>
+      <input type="number" id="knapsackLimit" name="knapsackLimit" value="50" min="15" max="200">
+    </div>
+    <div class="limit-input">
+      <label for="numberOfItems">Число предметов</label>
+      <input type="number" id="numberOfItems" name="numberOfItems" value="10" min="5" max="40">
+    </div>
+    <div class="generation-button">
+      <button style="border-radius: 5px;">Сгенерировать предметы</button>
+    </div>
+    <div class="item-list">
+      <!-- <div class="item">
+        <span class="item-value">Номер: </span>
+        <span class="item-weight">1</span>
+        <span class="item-value">Вес: </span>
+        <span class="item-weight">2</span>
+        <span class="item-value">Ценность: </span>
+        <span class="item-weight">15</span>
+      </div>
+      <div class="item">
+        <span class="item-value">Номер: </span>
+        <span class="item-weight">1</span>
+        <span class="item-value">Вес: </span>
+        <span class="item-weight">2</span>
+        <span class="item-value">Ценность: </span>
+        <span class="item-weight">15</span>
+      </div>
+      <div class="item">
+        <span class="item-value">Номер: </span>
+        <span class="item-weight">1</span>
+        <span class="item-value">Вес: </span>
+        <span class="item-weight">2</span>
+        <span class="item-value">Ценность: </span>
+        <span class="item-weight">15</span>
+      </div> -->
+    </div>
+    <div class="submit-button">
+      <button style="border-radius: 5px;">Получить результат</button>
+    </div>
+    <p style="font-weight: bold;">Результат:</p>
+    <div class="iterations">
+      <!-- <div class="iteration">
+        <div class="item">Вес: 2, Стоимость: 15</div>
+        <div class="item">Вес: 3, Стоимость: 12</div>
+        <div class="item">Вес: 5, Стоимость: 20</div>
+      </div>
+      <div class="iteration">
+        <div class="item">Вес: 3, Стоимость: 12</div>
+        <div class="item">Вес: 5, Стоимость: 20</div>
+      </div>
+      <div class="iteration">
+        <div class="item">Вес: 5, Стоимость: 20</div>
+      </div> -->
+    </div>
+    <p style="font-weight: bold;">Итоговая Стоимость:</p>
+    <p style="font-weight: bold;">Итоговый вес:</p>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
