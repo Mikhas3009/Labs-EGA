@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Задача о ранце</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Решение задачи о ранце с использованием ЭГА</h1>
+    <p>Исходные данные: </p>
+    <input type="file" name="items" accept=".json" id="items">
+    <div class="limit-input">
+      <label for="knapsack-limit">Максимальный вес ранца:</label>
+      <input type="number" id="knapsackLimit" name="knapsackLimit" value="50" min="15" max="1000" >
+    </div>
+    <div class="limit-input">
+      <label for="numberOfItems">Число предметов</label>
+      <input type="number" id="numberOfItems" name="numberOfItems" value="10" min="5" max="40" >
+    </div>
+    <div class="generation-items-button">
+      <button style="border-radius: 5px;">Сгенерировать предметы</button>
+    </div>
+    <div class="item-list">
+      <!-- <div class="item">
+        <span class="item-value">Номер: </span>
+        <span class="item-weight">1</span>
+        <span class="item-value">Вес: </span>
+        <span class="item-weight">2</span>
+        <span class="item-value">Ценность: </span>
+        <span class="item-weight">15</span>
+      </div>
+      <div class="item">
+        <span class="item-value">Номер: </span>
+        <span class="item-weight">1</span>
+        <span class="item-value">Вес: </span>
+        <span class="item-weight">2</span>
+        <span class="item-value">Ценность: </span>
+        <span class="item-weight">15</span>
+      </div>
+      <div class="item">
+        <span class="item-value">Номер: </span>
+        <span class="item-weight">1</span>
+        <span class="item-value">Вес: </span>
+        <span class="item-weight">2</span>
+        <span class="item-value">Ценность: </span>
+        <span class="item-weight">15</span>
+      </div> -->
+    </div>
+    <p>Способы формирования начальной популяции:</p>
+    <div class="radio-group">
+      <label for="greedy">Случайное формирование популяции(Без учета ограничений)</label>
+      <input type="radio" id="greedy" name="algorithm" value="rand" checked>
+    </div>
+    <div class="radio-group">
+      <label for="dynamic">Жадный алгоритм(кандидаты являются решениями)</label>
+      <input type="radio" id="dynamic" name="algorithm" value="evristic">
+    </div>
+
+    <div class="radio-group">
+      <label for="dynamic">Функциональный алгоритм(Без учета ограничений)</label>
+      <input type="radio" id="dynamic" name="algorithm" value="myAlg">
+    </div>
+    
+    <div class="limit-input">
+      <label for="knapsack-limit">Численность популяции:</label>
+      <input type="number" id="numberPop" name="numberPop" value="10" min="5" max="200">
+    </div>
+
+    
+    <div class="generation-button">
+      <button style="border-radius: 5px;">Сгенерировать популяцию</button>
+    </div>
+    <div class="populations">
+       <!-- <div class="item">
+        <span class="item-value">Номер: </span>
+        <span class="item-weight">1</span>
+        <span class="item-value">Вес: </span>
+        <span class="item-weight">2</span>
+        <span class="item-value">Ценность: </span>
+        <span class="item-weight">15</span>
+      </div> -->
+  
+    </div>
+    <p>Задайте операторы:</p>
+    <p>Стратегия выбора родителя:</p>
+    <div class="radio-group1">
+      <label for="parents">Случайный</label>
+      <input type="radio" id="randParents" name="parents" value="randParents" checked>
+    </div>
+    <div class="radio-group1">
+      <label for="parents">Аутбридинг</label>
+      <input type="radio" id="autobreeding" name="parents" value="autobreedingParents">
+    </div>
+    <p>Оператор кроссовера:</p>
+    <div class="radio-group2">
+      <label for="cross">Одноточечный кроссовер</label>
+      <input type="radio" id="onePointCross" name="cross" value="onePointCross"checked>
+    </div>
+    <div class="radio-group2">
+      <label for="cross">Равномерный кроссовер</label>
+      <input type="radio" id="uniformCross" name="cross" value="uniformCross">
+    </div>
+    <p>Оператор мутации:</p>
+    <div class="radio-group2">
+      <label for="genetic">Генетическая мутация</label>
+      <input type="radio" id="genetic" name="mutation" value="geneticMutation"checked>
+    </div>
+    <div class="radio-group2">
+      <label for="chromosom">Хромосомная мутация(Дополнение)</label>
+      <input type="radio" id="chromosom" name="mutation" value="chromosomMutation">
+    </div>
+    <div class="radio-group2">
+      <label for="chromosom">Функциональная мутация</label>
+      <input type="radio" id="chromosom" name="mutation" value="functionalMutation">
+    </div>
+    <p>Оператор Селекции:</p>
+    <div class="radio-group2">
+      <label for="randomSelection">Рулеточная селекция</label>
+      <input type="radio" id="randomSelection" name="selection" value="randomSelection"checked>
+    </div>
+    <div class="radio-group2">
+      <label for="tournamentSelection">Турнирная селекция</label>
+      <input type="radio" id="tournamentSelection" name="selection" value="tournamentSelection">
+    </div>
+    <div class="radio-group2">
+      <label for="tournamentSelection">Рулеточная селекция с учетом ограничения</label>
+      <input type="radio" id="tournamentSelection" name="selection" value="randomSelectionLimit">
+    </div>
+    <div class="submit-button">
+      <button style="border-radius: 5px;">Получить результат</button>
+    </div>
+    
+    <p style="font-weight: bold;">Результат:</p>
+    <div class="iterations">
+      <!-- <div class="iteration">
+        <div class="item">Вес: 2, Стоимость: 15</div>
+        <div class="item">Вес: 3, Стоимость: 12</div>
+        <div class="item">Вес: 5, Стоимость: 20</div>
+      </div>
+      <div class="iteration">
+        <div class="item">Вес: 3, Стоимость: 12</div>
+        <div class="item">Вес: 5, Стоимость: 20</div>
+      </div>
+      <div class="iteration">
+        <div class="item">Вес: 5, Стоимость: 20</div>
+      </div> -->
+    </div>
+    <p style="font-weight: bold;">Лучшая кодировка:</p>
+    <p style="font-weight: bold;">Приспособленность:</p>
+    <p style="font-weight: bold;">Вес:</p>
+    <p style="font-weight: bold;">Поколение:</p>
+  </div>
+  <script src="main.js"></script>
+  <script src="./formPopulation/randomPopulation.js"></script>
+  <script src="./algs.js"></script>
+</body>
+</html>
